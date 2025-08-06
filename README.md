@@ -9,19 +9,19 @@ Quick Reports SQL Queries
 
 ## 1. Top Selling Product
 
-'''sql
+```sql
 SELECT p.Product_Name, SUM(o.Order_Quantity) AS Total_Sold
 FROM Orders o
 JOIN Products p ON o.Product_ID = p.Product_ID
 GROUP BY p.Product_Name
 ORDER BY Total_Sold DESC
 FETCH FIRST 1 ROWS ONLY;
-'''
+```
 
 ## 2. Top Selling Product of the Month
 Replace 7 with the desired month number. Example below uses July (7th month).
 
-
+```sql
 SELECT p.Product_Name, SUM(o.Order_Quantity) AS Total_Sold
 FROM Orders o
 JOIN Products p ON o.Product_ID = p.Product_ID
@@ -29,9 +29,11 @@ WHERE EXTRACT(MONTH FROM o.Order_Date) = 7
 GROUP BY p.Product_Name
 ORDER BY Total_Sold DESC
 FETCH FIRST 1 ROWS ONLY;
+```
 
 ## 3. Most Ordered Product in Each Category
 
+```sql
 SELECT
     p.Product_Category,
     p.Product_Name,
@@ -45,7 +47,8 @@ GROUP BY
 ORDER BY
     p.Product_Category,
     Total_Ordered DESC;
-    
+```
+```sql  
 ## 4. Average Order Value on Weekends and Weekdays
 
 SELECT
@@ -66,3 +69,4 @@ GROUP BY
     END
 ORDER BY
     o.Order_Date;
+```

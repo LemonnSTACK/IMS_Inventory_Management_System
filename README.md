@@ -48,9 +48,10 @@ ORDER BY
     p.Product_Category,
     Total_Ordered DESC;
 ```
-```sql  
-## 4. Average Order Value on Weekends and Weekdays
 
+
+## 4. Average Order Value on Weekends and Weekdays
+```sql
 SELECT
     TO_CHAR(o.Order_Date, 'DD-MON-YYYY') AS Order_Date,
     CASE

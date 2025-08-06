@@ -7,7 +7,7 @@ Batch and expiry tracking for perishable goods
 
 SQL Queries
 1. Top Selling Product
-SQL
+
 SELECT p.Product_Name, SUM(o.Order_Quantity) AS Total_Sold
 FROM Orders o
 JOIN Products p ON o.Product_ID = p.Product_ID
@@ -18,7 +18,7 @@ FETCH FIRST 1 ROWS ONLY;
 3. Top Selling Product of the Month
 Replace 7 with the desired month number. Example below uses July (7th month).
 
-SQL
+
 SELECT p.Product_Name, SUM(o.Order_Quantity) AS Total_Sold
 FROM Orders o
 JOIN Products p ON o.Product_ID = p.Product_ID
@@ -28,7 +28,7 @@ ORDER BY Total_Sold DESC
 FETCH FIRST 1 ROWS ONLY;
 
 3. Most Ordered Product in Each Category
-SQL
+
 SELECT
     p.Product_Category,
     p.Product_Name,
@@ -44,7 +44,7 @@ ORDER BY
     Total_Ordered DESC;
     
 4. Average Order Value on Weekends and Weekdays
-SQL
+
 SELECT
     TO_CHAR(o.Order_Date, 'DD-MON-YYYY') AS Order_Date,
     CASE

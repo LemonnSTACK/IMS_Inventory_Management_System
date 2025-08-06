@@ -1,4 +1,4 @@
-An inventory management system solution designed to track, manage, and optimize stock levels.
+# An inventory management system solution designed to track, manage, and optimize stock levels.
 Features:
 Demand forecasting based on historical sales and trends
 Restocking alerts to prevent stockouts or overstocking
@@ -6,7 +6,7 @@ Batch and expiry tracking for perishable goods
 
 
 SQL Queries
-1. Top Selling Product
+## 1. Top Selling Product
 
 SELECT p.Product_Name, SUM(o.Order_Quantity) AS Total_Sold
 FROM Orders o
@@ -15,7 +15,7 @@ GROUP BY p.Product_Name
 ORDER BY Total_Sold DESC
 FETCH FIRST 1 ROWS ONLY;
 
-2. Top Selling Product of the Month
+## 2. Top Selling Product of the Month
 Replace 7 with the desired month number. Example below uses July (7th month).
 
 
@@ -27,7 +27,7 @@ GROUP BY p.Product_Name
 ORDER BY Total_Sold DESC
 FETCH FIRST 1 ROWS ONLY;
 
-3. Most Ordered Product in Each Category
+## 3. Most Ordered Product in Each Category
 
 SELECT
     p.Product_Category,
@@ -43,7 +43,7 @@ ORDER BY
     p.Product_Category,
     Total_Ordered DESC;
     
-4. Average Order Value on Weekends and Weekdays
+## 4. Average Order Value on Weekends and Weekdays
 
 SELECT
     TO_CHAR(o.Order_Date, 'DD-MON-YYYY') AS Order_Date,

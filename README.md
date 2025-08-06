@@ -15,7 +15,7 @@ GROUP BY p.Product_Name
 ORDER BY Total_Sold DESC
 FETCH FIRST 1 ROWS ONLY;
 
-3. Top Selling Product of the Month
+2. Top Selling Product of the Month
 Replace 7 with the desired month number. Example below uses July (7th month).
 
 

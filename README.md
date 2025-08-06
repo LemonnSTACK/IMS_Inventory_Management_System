@@ -1,10 +1,13 @@
-# IMS_Inventory_Management_System
-An inventory management system  solution designed to track, manage, and optimize ...
-Demand forecasting based on historical sales and trends.
-Restocking alerts to prevent stockouts or overstocking.
+An inventory management system solution designed to track, manage, and optimize stock levels.
+Features:
+Demand forecasting based on historical sales and trends
+Restocking alerts to prevent stockouts or overstocking
 Batch and expiry tracking for perishable goods
 
---Top selling product
+
+SQL Queries
+1. Top Selling Product
+SQL
 SELECT p.Product_Name, SUM(o.Order_Quantity) AS Total_Sold
 FROM Orders o
 JOIN Products p ON o.Product_ID = p.Product_ID
@@ -12,7 +15,10 @@ GROUP BY p.Product_Name
 ORDER BY Total_Sold DESC
 FETCH FIRST 1 ROWS ONLY;
 
---Top Selling Product of the month(Replace your momth number currently its July(7th month)
+3. Top Selling Product of the Month
+Replace 7 with the desired month number. Example below uses July (7th month).
+
+SQL
 SELECT p.Product_Name, SUM(o.Order_Quantity) AS Total_Sold
 FROM Orders o
 JOIN Products p ON o.Product_ID = p.Product_ID
@@ -21,7 +27,8 @@ GROUP BY p.Product_Name
 ORDER BY Total_Sold DESC
 FETCH FIRST 1 ROWS ONLY;
 
----Most ordered in their category 
+3. Most Ordered Product in Each Category
+SQL
 SELECT
     p.Product_Category,
     p.Product_Name,
@@ -35,9 +42,10 @@ GROUP BY
 ORDER BY
     p.Product_Category,
     Total_Ordered DESC;
-
- ---Average Order Value on Weekend and Weekdays
- SELECT
+    
+4. Average Order Value on Weekends and Weekdays
+SQL
+SELECT
     TO_CHAR(o.Order_Date, 'DD-MON-YYYY') AS Order_Date,
     CASE
         WHEN TO_CHAR(o.Order_Date, 'DY', 'NLS_DATE_LANGUAGE = ENGLISH') IN ('SAT', 'SUN') THEN 'Weekend'

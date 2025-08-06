@@ -5,15 +5,18 @@ Restocking alerts to prevent stockouts or overstocking
 Batch and expiry tracking for perishable goods
 
 
-SQL Queries
+Quick Reports SQL Queries
+
 ## 1. Top Selling Product
 
+'''sql
 SELECT p.Product_Name, SUM(o.Order_Quantity) AS Total_Sold
 FROM Orders o
 JOIN Products p ON o.Product_ID = p.Product_ID
 GROUP BY p.Product_Name
 ORDER BY Total_Sold DESC
 FETCH FIRST 1 ROWS ONLY;
+'''
 
 ## 2. Top Selling Product of the Month
 Replace 7 with the desired month number. Example below uses July (7th month).
